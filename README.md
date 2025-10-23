@@ -44,6 +44,7 @@ Las capas se comunican de forma jerárquica:
    ```bash
    git clone https://github.com/SofiaMOsorno/PianoTilesGame.git
    cd PianoTilesGame
+   pip install numpy pyaudio
    python main.py
 
 
