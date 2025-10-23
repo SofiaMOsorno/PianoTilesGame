@@ -9,11 +9,11 @@
 
 Este proyecto sigue una arquitectura en capas para mantener una separación clara de responsabilidades:
 
-📁 presentation/ → Interfaz de usuario y elementos visuales
+📁 views/ → Interfaz de usuario y elementos visuales
 
-📁 business_logic/ → Lógica del juego y reglas principales 
+📁 controllers/ → Lógica del juego y reglas principales 
 
-📁 data/ → Acceso a datos, almacenamiento y persistencia
+📁 modelo/ → Acceso a datos, almacenamiento y persistencia
 
 
 ---
