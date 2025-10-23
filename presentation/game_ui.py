@@ -44,18 +44,18 @@ class GameUI:
         self.score_label = tk.Label(
             info_frame,
             text=f"Puntos: {self.game_data.get_score()}",
-            font=("Arial", 14, "bold"),
-            bg="#1e1e1e",
-            fg="#f1c40f"
+            font=('Arial', 22, 'bold'),
+            bg='#1c1c1c',
+            fg='#f1c40f'
         )
         self.score_label.pack(side=tk.LEFT, padx=20)
 
         self.speed_label = tk.Label(
             info_frame,
             text=f"Velocidad: {self.game_data.get_speed()}",
-            font=("Arial", 14, "bold"),
-            bg="#1e1e1e",
-            fg="#1abc9c"
+            font=('Arial', 18, 'bold'),
+            bg='#1c1c1c',
+            fg='#1abc9c'
         )
         self.speed_label.pack(side=tk.RIGHT, padx=20)
 
@@ -78,15 +78,15 @@ class GameUI:
 
         # Botón de reinicio (rojo)
         self.restart_button = tk.Button(
-            self.root,
-            text="REINICIAR",
-            font=("Arial", 14, "bold"),
-            bg="#e74c3c",
-            fg="white",
-            activebackground="#c0392b",
-            activeforeground="white",
-            relief="flat",
-            padx=20,
+            main_frame,
+            text="Reiniciar",
+            command=self.restart_game,
+            font=('Arial', 14, 'bold'),
+            bg='#e74c3c',
+            fg='black',
+            activebackground='#c0392b',
+            activeforeground='white',
+            padx=25,
             pady=8,
             command=self.restart_game,
             cursor="hand2"
@@ -208,13 +208,20 @@ class GameUI:
     def show_game_over(self):
         self.canvas.create_text(
             self.game_data.get_canvas_width() // 2,
-            self.game_data.get_canvas_height() // 2,
-            text="GAME OVER",
-            font=("Arial", 36, "bold"),
-            fill="white"
+            self.game_data.get_canvas_height() // 2 - 40,
+            text="¡GAME OVER!",
+            font=('Arial', 36, 'bold'),
+            fill='white'
         )
-        self.start_button.pack(pady=5)
-
+        
+        self.canvas.create_text(
+            self.game_data.get_canvas_width() // 2,
+            self.game_data.get_canvas_height() // 2 + 30,
+            text=f"Puntuación Final: {self.game_data.get_score()}",
+            font=('Arial', 22, 'bold'),
+            fill='white'
+        )
+    
     def restart_game(self):
         for tile in list(self.tile_graphics.keys()):
             self.delete_tile_graphic(tile)
@@ -227,4 +234,5 @@ class GameUI:
         self.tile_graphics.clear()
         self.draw_gradient_background()
         self.draw_column_lines()
+        
         self.start_game()

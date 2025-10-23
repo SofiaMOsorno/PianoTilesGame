@@ -42,9 +42,8 @@ Las capas se comunican de forma jerárquica:
 
 1. Clona el repositorio:  
    ```bash
-   git clone https://github.com/usuario/proyecto-juego.git
-   cd proyecto-juego
-   pip install
+   git clone https://github.com/SofiaMOsorno/PianoTilesGame.git
+   cd PianoTilesGame
    python main.py
 
 
@@ -63,6 +62,7 @@ A continuación se detalla la participación de cada integrante del equipo segú
 | Isaac Noriega       | Programador              | Desarrollo de la interfaz de usuario             |
 | Mateo Hernandez       | Programador              | Implementacion de datos             |
 | César Sainz | Programador     | UI Interface                  |
+| Sofia Lopez | Documentar     | Revisar documentación                  |
 | Daniel Rodriguez | Documentar     | Escribir la documentación del proyecto                             |
 
 
