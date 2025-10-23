@@ -25,7 +25,7 @@ class GameUI:
         self.score_label = tk.Label(
             info_frame,
             text=f"Puntos: {self.game_data.get_score()}",
-            font=('Comic Sans MS', 22, 'bold'),
+            font=('Arial', 22, 'bold'),
             bg='#1c1c1c',
             fg='#f1c40f'
         )
@@ -34,7 +34,7 @@ class GameUI:
         self.speed_label = tk.Label(
             info_frame,
             text=f"Velocidad: {self.game_data.get_speed()}",
-            font=('Comic Sans MS', 18, 'bold'),
+            font=('Arial', 18, 'bold'),
             bg='#1c1c1c',
             fg='#1abc9c'
         )
@@ -57,7 +57,7 @@ class GameUI:
             main_frame,
             text="Reiniciar",
             command=self.restart_game,
-            font=('Comic Sans MS', 14, 'bold'),
+            font=('Arial', 14, 'bold'),
             bg='#e74c3c',
             fg='black',
             activebackground='#c0392b',
@@ -184,7 +184,7 @@ class GameUI:
             self.game_data.get_canvas_width() // 2,
             self.game_data.get_canvas_height() // 2 - 40,
             text="¡GAME OVER!",
-            font=('Comic Sans MS', 36, 'bold'),
+            font=('Arial', 36, 'bold'),
             fill='white'
         )
         
@@ -192,7 +192,7 @@ class GameUI:
             self.game_data.get_canvas_width() // 2,
             self.game_data.get_canvas_height() // 2 + 30,
             text=f"Puntuación Final: {self.game_data.get_score()}",
-            font=('Comic Sans MS', 22, 'bold'),
+            font=('Arial', 22, 'bold'),
             fill='white'
         )
     
