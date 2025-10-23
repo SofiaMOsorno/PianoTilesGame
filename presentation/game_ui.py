@@ -1,5 +1,12 @@
 import tkinter as tk
 from business_logic.game_logic import GameLogic
+import random
+from concurrent.futures import ThreadPoolExecutor
+import numpy as np
+import pyaudio
+import struct
+
+SOUND_ENGINE = 'pyaudio'
 
 class GameUI:
     def __init__(self, root):
@@ -10,15 +17,66 @@ class GameUI:
         self.game_data = self.game_logic.get_game_data()
         self.tile_graphics = {}
         
+        self.notes = {
+            'F4': 349,
+            'G4': 392,
+            'A4': 440,
+            'B4': 494,
+            'C5': 523,
+            'D5': 587,
+            'E5': 659,
+            'F5': 698,
+            'G5': 784
+        }
+        
+        self.note_list = list(self.notes.values())
+        
+        self.sound_executor = ThreadPoolExecutor(max_workers=4)
+        
+        self.sample_rate = 44100
+        self.p = pyaudio.PyAudio()
+        self.stream = self.p.open(
+            format=pyaudio.paFloat32,
+            channels=1,
+            rate=self.sample_rate,
+            output=True,
+            frames_per_buffer=1024
+        )
+        
         self.create_ui()
         self.bind_events()
         self.start_game()
+    
+    def generate_tone(self, frequency, duration=0.15):
+        num_samples = int(self.sample_rate * duration)
+        t = np.linspace(0, duration, num_samples, False)
+        wave = np.sin(2 * np.pi * frequency * t)
+        
+        envelope = np.ones(num_samples)
+        fade_samples = int(0.01 * self.sample_rate)
+        envelope[:fade_samples] = np.linspace(0, 1, fade_samples)
+        envelope[-fade_samples:] = np.linspace(1, 0, fade_samples)
+        
+        wave = wave * envelope * 0.3
+        return wave.astype(np.float32)
+    
+    def play_note(self, frequency=None):
+        if frequency is None:
+            frequency = random.choice(self.note_list)
+        
+        def play_sound_task():
+            try:
+                tone = self.generate_tone(frequency)
+                self.stream.write(tone.tobytes())
+            except Exception as e:
+                print(f"Error reproduciendo sonido: {e}")
+        
+        self.sound_executor.submit(play_sound_task)
     
     def create_ui(self):
         main_frame = tk.Frame(self.root, bg="#2c2c2c")
         main_frame.pack(padx=10, pady=10)
         
-        # Info Frame con estilo moderno
         info_frame = tk.Frame(main_frame, bg='#1c1c1c', height=60, bd=2, relief='ridge')
         info_frame.pack(fill=tk.X, pady=(0, 5))
         
@@ -40,7 +98,6 @@ class GameUI:
         )
         self.speed_label.pack(side=tk.RIGHT, padx=20, pady=10)
         
-        # Canvas con degradado simulado
         self.canvas = tk.Canvas(
             main_frame,
             width=self.game_data.get_canvas_width(),
@@ -52,7 +109,6 @@ class GameUI:
         
         self.draw_column_lines()
         
-        # Botón con estilo moderno y animación de hover
         self.restart_button = tk.Button(
             main_frame,
             text="Reiniciar",
@@ -69,6 +125,15 @@ class GameUI:
             cursor='hand2'
         )
         self.restart_button.pack(pady=(10, 0))
+        
+        self.sound_label = tk.Label(
+            main_frame,
+            text=f"Sonido: {SOUND_ENGINE}",
+            font=('Arial', 10),
+            bg='#2c2c2c',
+            fg='#95a5a6'
+        )
+        self.sound_label.pack(pady=(5, 0))
     
     def draw_column_lines(self):
         for i in range(1, self.game_data.get_columns()):
@@ -148,6 +213,8 @@ class GameUI:
         clicked_tile = self.game_logic.check_click(x, y)
         
         if clicked_tile:
+            self.play_note()
+            
             self.mark_tile_clicked(clicked_tile)
             self.game_logic.increase_score()
             self.update_score_display()
@@ -210,3 +277,11 @@ class GameUI:
         self.draw_column_lines()
         
         self.start_game()
+    
+    def __del__(self):
+        try:
+            self.stream.stop_stream()
+            self.stream.close()
+            self.p.terminate()
+        except:
+            pass
