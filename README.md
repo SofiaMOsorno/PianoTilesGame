@@ -9,26 +9,26 @@
 
 Este proyecto sigue una arquitectura en capas para mantener una separación clara de responsabilidades:
 
-📁 views/ → Interfaz de usuario y elementos visuales
+📁 presentation/ → Interfaz de usuario y elementos visuales
 
-📁 controllers/ → Lógica del juego y reglas principales 
+📁 buisiness_logic/ → Lógica del juego y reglas principales 
 
-📁 modelo/ → Acceso a datos, almacenamiento y persistencia
+📁 data/ → Acceso a datos, almacenamiento y persistencia
 
 
 ---
 
-## 🌿 Organización de Ramas en Git
+## Organización de Ramas en Git
 
-Para facilitar el desarrollo colaborativo, se utilizaron ramas por capa o funcionalidad por ejemplo:
+Para facilitar el desarrollo colaborativo, se utilizaron ramas por capa o funcionalidad:
 
-- `feature/ui` → Desarrollo de la interfaz de usuario  
+- `feature_ui` → Desarrollo de la interfaz de usuario  
 - `feature/game-logic` → Implementación de la lógica del juego  
-- `feature/data-layer` → Manejo de datos y persistencia
+- `update/ReadMe` → Actualizaciones del ReadMe
 
 ---
 
-## 🔗 Integración de Capas
+## Integración de Capas
 
 Las capas se comunican de forma jerárquica:
 
@@ -38,7 +38,7 @@ Las capas se comunican de forma jerárquica:
 
 ---
 
-## ▶️ Cómo Ejecutar el Juego
+## Cómo Ejecutar el Juego
 
 1. Clona el repositorio:  
    ```bash
@@ -50,7 +50,7 @@ Las capas se comunican de forma jerárquica:
 
 ---
 
-## 👥 Contribuidores
+## Contribuidores
 
 A continuación se detalla la participación de cada integrante del equipo según la capa o funcionalidad asignada:
 
@@ -60,6 +60,8 @@ A continuación se detalla la participación de cada integrante del equipo segú
 | Luis Arturo            | Programador      | Desarrollo del main          |
 | Jaime Contreras          | Programador          | Implementación de reglas del juego y flujo principal                 |
 | Aura Gutierrez       | Programador              | Implementación de reglas del juego y flujo principal             |
+| Isaac Noriega       | Programador              | Desarrollo de la interfaz de usuario             |
+| Mateo Hernandez       | Programador              | Implementacion de datos             |
 | Daniel Rodriguez | Documentar     | Escribir la documentación del proyecto                             |
 
 ---
