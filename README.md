@@ -62,7 +62,9 @@ A continuación se detalla la participación de cada integrante del equipo segú
 | Aura Gutierrez       | Programador              | Implementación de reglas del juego y flujo principal             |
 | Isaac Noriega       | Programador              | Desarrollo de la interfaz de usuario             |
 | Mateo Hernandez       | Programador              | Implementacion de datos             |
+| César Sainz | Programador     | UI Interface                  |
 | Daniel Rodriguez | Documentar     | Escribir la documentación del proyecto                             |
+
 
 ---
 
