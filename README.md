@@ -42,9 +42,8 @@ Las capas se comunican de forma jerárquica:
 
 1. Clona el repositorio:  
    ```bash
-   git clone https://github.com/usuario/proyecto-juego.git
+   git clone https://github.com/SofiaMOsorno/PianoTilesGame.git
    cd PianoTilesGame
-   pip install
    python main.py
 
 
