@@ -1,12 +1,12 @@
 import tkinter as tk
-from game import Game
+from presentation.game_ui import GameUI
 
 def main():
     root = tk.Tk()
     root.title("Piano Tiles")
     root.resizable(False, False)
     
-    game = Game(root)
+    game_ui = GameUI(root)
     
     root.mainloop()
 

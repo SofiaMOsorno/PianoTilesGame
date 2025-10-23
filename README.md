@@ -1,4 +1,4 @@
-#  Proyecto Piano Tiles Game
+# Proyecto Piano Tiles Game
 
 ## Líder del Proyecto
 **Nombre del líder:** Sofia Maisha Osorno Aimar
