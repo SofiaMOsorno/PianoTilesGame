@@ -1,11 +1,11 @@
-# 🎮 Proyecto Piano Tiles Game
+# Proyecto Piano Tiles Game
 
-## 👤 Líder del Proyecto
+## Líder del Proyecto
 **Nombre del líder:** Sofia Maisha Osorno Aimar
 
 ---
 
-## 🧱 Estructura del Proyecto
+## Estructura del Proyecto
 
 Este proyecto sigue una arquitectura en capas para mantener una separación clara de responsabilidades:
 
