@@ -1,4 +1,4 @@
-# 🎮 Proyecto [Piano Tiles Game]
+# 🎮 Proyecto Piano Tiles Game
 
 ## 👤 Líder del Proyecto
 **Nombre del líder:** Sofia Maisha Osorno Aimar
@@ -44,6 +44,8 @@ Las capas se comunican de forma jerárquica:
    ```bash
    git clone https://github.com/usuario/proyecto-juego.git
    cd proyecto-juego
+   pip install
+   python main.py
 
 
 ---
@@ -52,13 +54,13 @@ Las capas se comunican de forma jerárquica:
 
 A continuación se detalla la participación de cada integrante del equipo según la capa o funcionalidad asignada:
 
-| Nombre                | Rol / Capa Asignada       | Descripción de Contribución                                         |
+| Nombre                | Rol       | Descripción de Contribución                                         |
 |-----------------------|---------------------------|----------------------------------------------------------------------|
-| [Nombre del líder]    | Líder del proyecto         | Coordinación general, revisión de arquitectura y soporte transversal |
-| [Nombre 1]            | Capa de presentación       | Desarrollo de la interfaz de usuario y experiencia visual            |
-| [Nombre 2]            | Lógica de negocio          | Implementación de reglas del juego y flujo principal                 |
-| [Nombre 3]            | Capa de datos              | Gestión de almacenamiento, persistencia y acceso a datos             |
-| [Nombre 4] *(opcional)* | QA / Testing / Soporte     | Pruebas, documentación y soporte técnico                             |
+| Sofia Osorno    | Líder del proyecto         | Coordinación general, revisión de arquitectura y soporte transversal |
+| Luis Arturo            | Programador      | Desarrollo del main          |
+| Jaime Contreras          | Programador          | Implementación de reglas del juego y flujo principal                 |
+| Aura Gutierrez       | Programador              | Implementación de reglas del juego y flujo principal             |
+| Daniel Rodriguez | Documentar     | Escribir la documentación del proyecto                             |
 
 ---
 
