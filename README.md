@@ -62,6 +62,7 @@ A continuación se detalla la participación de cada integrante del equipo segú
 | Isaac Noriega       | Programador              | Desarrollo de la interfaz de usuario             |
 | Mateo Hernandez       | Programador              | Implementacion de datos             |
 | César Sainz | Programador     | UI Interface                  |
+| Sofia Lopez | Documentar     | Revisar documentación                  |
 | Daniel Rodriguez | Documentar     | Escribir la documentación del proyecto                             |
 
 
